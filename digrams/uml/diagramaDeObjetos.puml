@@ -1,0 +1,32 @@
+@startuml Diagrama de Objetos - CEMU Uneatlantico
+
+title Diagrama de objetos - CEMU Uneatlantico
+
+' Instancias de clases
+object practicas {
+  nombre = "Programador Frontend"
+}
+
+object empresa {
+  nombre = "Universidad Europea del Atántico"
+}
+
+object grado {
+  nombre = "Grado en Ingeniería Informática"
+}
+
+object solicitud {
+  estado = "Pendiente"
+}
+
+object admin {
+  nombre = "Admin"
+}
+
+' Relaciones entre objetos
+practicas -- empresa
+practicas -- grado
+practicas -- solicitud
+admin --> practicas : crea
+
+@enduml

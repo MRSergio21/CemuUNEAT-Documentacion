@@ -1,0 +1,25 @@
+@startuml Modelo del dominio Ticket
+
+title Diagrama de clases - CEMU Uneatlantico
+
+class Practicas{ 
+}
+
+class Empresa{ 
+}
+
+class Grado{
+}
+
+class Solicitud{ 
+}
+
+class Administrador{ 
+}
+
+Practicas -- Empresa
+Practicas -- Grado
+Practicas -- Solicitud
+Administrador -- Practicas : > permite crear
+
+@enduml

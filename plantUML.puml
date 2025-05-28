@@ -1,0 +1,24 @@
+@startuml
+skinparam style strictuml
+skinparam linetype ortho
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+rectangle "Router" as Router #lightgreen
+rectangle "Middleware\n(Autenticación)" as AuthMiddleware #FAD7A0
+rectangle "Middleware\n(Validaciones)" as ValidationMiddleware #F8C471
+rectangle "Controlador" as Controller #AED6F1
+rectangle "Servicio" as Service #E8DAEF
+rectangle "Acceso a Datos" as DataAccess #F5B7B1
+
+Router --> AuthMiddleware
+AuthMiddleware --> ValidationMiddleware
+ValidationMiddleware --> Controller
+Controller --> Service
+Service --> DataAccess
+DataAccess --> Service
+Service --> Controller
+Controller --> ValidationMiddleware
+ValidationMiddleware --> AuthMiddleware
+AuthMiddleware --> Router
+@enduml
