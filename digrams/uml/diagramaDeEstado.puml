@@ -1,0 +1,20 @@
+@startuml
+
+[*] -->  CrearPractica
+
+CrearPractica -r-> Publicada
+
+Publicada -r-> AlumnoInteresado
+AlumnoInteresado -r-> Solicitud
+
+Solicitud -r-> SolicitudRecibida
+SolicitudRecibida -r-> Leida
+SolicitudRecibida -r-> NoLeida
+Leida -r-> EnEspera
+NoLeida -r-> EnEspera
+EnEspera -r-> Leida
+Leida --> Respuesta
+
+Respuesta -r-> [*]
+
+@enduml

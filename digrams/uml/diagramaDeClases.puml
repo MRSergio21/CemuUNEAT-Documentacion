@@ -1,25 +1,48 @@
 @startuml Modelo del dominio Ticket
 
-title Diagrama de clases - CEMU Uneatlantico
+title Modelo del dominio - CEMU Uneatlantico
 
-class Practicas{ 
+class Practica {
+    +nombrePractica
+    +fechaInicio
+    +fechaFin
+    +horas
+    +descripcion
+    +nombreEmpresa
+    +nombreGrado
 }
 
-class Empresa{ 
+class Empresa {
+    +nombre
 }
 
-class Grado{
+class Grado {
+    +nombre
 }
 
-class Solicitud{ 
+class Solicitud {
+    +nombrePractica
+    +nombreAlumno
+    +fechaSolicitud 
 }
 
-class Administrador{ 
+class Administrador {
+    +usuario
+    +contrasena
+    +correo 
 }
 
-Practicas -- Empresa
-Practicas -- Grado
-Practicas -- Solicitud
-Administrador -- Practicas : > permite crear
+class Alumno {
+    +nombre
+    +correo
+    +nombreGrado 
+}
+
+Practica o-- Grado : pertenece a
+Practica --> Empresa : dirigida por
+Alumno --> Solicitud : realiza
+Solicitud --> Practica : para la práctica
+Administrador ..> Practica : permite crear
+Alumno --* Grado : cursa
 
 @enduml

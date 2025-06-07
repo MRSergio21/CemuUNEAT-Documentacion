@@ -1,0 +1,12 @@
+@startuml
+
+  (*) --> Administrador Crea Práctica Profesional
+      --> Administrador Publica Práctica Profesional
+      --> Alumno Interesado en Práctica Profesional
+      --> Alumno Realiza Solicitud
+      --> Administrador da Seguimiento a Solicitud
+      --> Administrador Valida Solicitud
+      --> Administrador Notifica Respuesta
+      --> (*)
+
+@enduml

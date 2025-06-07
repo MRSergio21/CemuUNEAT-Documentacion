@@ -1,0 +1,30 @@
+@startuml
+
+title Diagrama de Objetos Crear Solicitud para aplicar a una Práctica Profesional
+
+object "alumno1 : Alumno" as alumno {
+    nombre: "Diego Jimenez"
+    correo: "diego.jimenez@alumnos.uneatlantico.es"
+    nombreGrado: "Ingeniería Informática"
+}
+
+object "solicitud1 : Solicitud" as solicitud {
+    nombrePractica: "Desarrollo Web"
+    nombreAlumno: "Diego Jimenez"
+    fechaSolicitud: "07/06/2025"
+}
+
+object "practica : practica" as practica{
+    nombrePractica: "Desarrollo Web"
+    fechaInicio: "01/09/2025"
+    fechaFin: "30/11/2025"
+    horas: 300
+    descripcion: "Creación de aplicaciones web"
+    nombreEmpresa: "Code Solutions"
+    nombreGrado: "Ingeniería Informática"
+}
+
+alumno -- solicitud: > realiza
+solicitud -- practica: > para
+
+@enduml

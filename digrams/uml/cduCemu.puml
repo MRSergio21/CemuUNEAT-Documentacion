@@ -1,0 +1,52 @@
+@startuml
+
+left to right direction
+
+actor Administrador as Admin
+
+
+package "Módulo Empresa" {
+    usecase "Listar Empresas" as E1
+    usecase "Eliminar Empresa" as E2
+    usecase "Editar Empresa" as E3
+    usecase "Registrar Empresa" as E4
+}
+
+package "Módulo Grados" {
+    usecase "Listar Grados" as G1
+    usecase "Eliminar Grado" as G2
+    usecase "Editar Grado" as G3
+    usecase "Registrar Grado" as G4
+}
+
+package "Módulo Prácticas Profesionales" {
+    usecase "Listar Prácticas Profesionales" as PP1
+    usecase "Eliminar Práctica Profesional" as PP2
+    usecase "Editar Práctica Profesional" as PP3
+    usecase "Registrar Práctica Profesional" as PP4
+}
+
+package "Módulo Prácticas Solicitudes" {
+    usecase "Listar Solicitudes" as UC1
+    usecase "Cambiar estado de Solicitud" as UC2
+}
+
+Admin -- E1
+Admin -- E2
+Admin -- E3
+Admin -- E4
+
+Admin -- G1
+Admin -- G2
+Admin -- G3
+Admin -- G4
+
+Admin -- PP1
+Admin -- PP2
+Admin -- PP3
+Admin -- PP4
+
+Admin -- UC1
+Admin -- UC2
+
+@enduml

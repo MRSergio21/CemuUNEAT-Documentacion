@@ -1,0 +1,22 @@
+@startuml
+
+title Diagrama de Objetos Crear Práctica Profesional
+
+object "administrador : usuario" as usuario{
+    usuario: "sergio.mayen"
+    contrasena: "adminpass"
+    correo: "sergio.mayen@ct.uneatlantico.com"
+
+}
+object "practica : practica" as practica{
+    nombrePractica: "Desarrollo Web"
+    fechaInicio: "01/09/2025"
+    fechaFin: "30/11/2025"
+    horas: 300
+    descripcion: "Creación de aplicaciones web"
+    nombreEmpresa: "Code Solutions"
+    nombreGrado: "Ingeniería Informática"
+}
+usuario-- practica: > crea
+
+@enduml
