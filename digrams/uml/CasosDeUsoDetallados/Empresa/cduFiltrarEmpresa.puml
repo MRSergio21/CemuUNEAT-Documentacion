@@ -1,0 +1,30 @@
+@startuml
+skin rose
+title Caso de Uso: Filtrar Empresa
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+DASHBOARD_ABIERTO --> FiltrarEmpresa
+FiltrarEmpresa --> DASHBOARD_ABIERTO2
+
+state FiltrarEmpresa {
+
+  [*] -[#blue]-> verlistadoEmpresas
+  state "Ver" as verlistadoEmpresas
+  verlistadoEmpresas -[#blue]-> confirmarFiltrado
+  state "Aplicar" as confirmarFiltrado
+  confirmarFiltrado -[#blue]-> listadoFiltrado
+  note on link
+    **El usuario introduce**:
+    ° El nombre de empresa
+    ° Una letra o una cadena de letras que contenga el nombre de la empresa
+  end note
+  state "Ver" as listadoFiltrado
+  listadoFiltrado -[#blue]-> [*]
+}
+
+note on link
+  **El sistema muestra**:
+  ° Lista de Empresas filtradas
+end note
+
+@enduml

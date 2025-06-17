@@ -1,0 +1,24 @@
+@startuml
+skin rose
+title Caso de Uso: Ver Empresa
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+
+DASHBOARD_ABIERTO --> FILTRAR_EMPRESA
+FILTRAR_EMPRESA --> VER_EMPRESA
+VER_EMPRESA --> DASHBOARD_ABIERTO2
+
+state VER_EMPRESA {
+  [*] -[#blue]-> seleccionarOpcionVer
+  note on link : **El usuario** solicita seleccionar una empresa
+  state "Seleccionar" as seleccionarOpcionVer
+  seleccionarOpcionVer -[#blue]-> [*]
+
+  note on link
+    **El sistema muestra**:
+    ° La empresa seleccionado
+  end note
+
+}
+
+@enduml

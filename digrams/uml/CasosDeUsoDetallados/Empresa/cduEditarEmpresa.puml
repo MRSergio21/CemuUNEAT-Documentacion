@@ -1,0 +1,37 @@
+@startuml
+skin rose
+title Caso de Uso: Editar Empresa
+
+state DASHBOARD_ABIERTO
+state "VER_EMPRESA" as VER_EMPRESA2
+state FILTRAR_EMPRESA
+
+DASHBOARD_ABIERTO --> FILTRAR_EMPRESA
+note on link: **El usuario** solicita filtrar por nombre de empresa
+FILTRAR_EMPRESA --> VER_EMPRESA2
+note on link: **El usuario** solicita ver una empresa
+VER_EMPRESA2 --> EditarEmpresa
+
+state EditarEmpresa {
+
+  [*] -[#blue]-> editarEmpresa
+  note on link
+    **El usuario** solicita editar una empresa
+    **El usuario** introduce los datos a modificar
+  end note
+  state "Editar" as editarEmpresa
+  editarEmpresa -[#blue]-> confirmarCambios
+  state "Confirmar" as confirmarCambios
+  note on link
+    **El sistema** permite modificar:
+    ° Nombre de la empresa
+  end note
+
+  confirmarCambios -[#blue]-> [*]
+  note on link: **El usuario** solicita cambiar una empresa
+  confirmarCambios -[#red]-> [*]
+  note on link: **El usuario** solicita cancelar el cambio
+
+}
+
+@enduml

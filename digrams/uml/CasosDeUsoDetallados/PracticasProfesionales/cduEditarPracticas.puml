@@ -1,0 +1,49 @@
+@startuml
+skin rose
+title Caso de Uso: Editar Prácticas Profesionales
+
+state DASHBOARD_ABIERTO
+state "VER_PRACTICA" as VER_PRACTICA2
+state FILTRAR_PRACTICA
+
+DASHBOARD_ABIERTO --> FILTRAR_PRACTICA
+note on link: **El usuario** solicita filtrar por nombre de practica profesional
+FILTRAR_PRACTICA --> VER_PRACTICA2
+note on link: **El usuario** solicita ver una practica profesional
+VER_PRACTICA2 --> EditarPractica
+
+state EditarPractica {
+    [*] -[#blue]-> editarPractica
+    note on link
+        **El usuario** solicita editar una practica profesional
+        **El usuario** introduce los datos a modificar
+    end note
+    state "Editar" as editarPractica
+    editarPractica -[#blue]-> confirmarCambios
+    state "Confirmar" as confirmarCambios
+    note on link
+        **El sistema** permite modificar:
+        ° Nombre de la practica profesional
+        ° Descripción de la practica profesional
+        ° Empresa de la practica profesional
+        ° Grado formativo de la practica profesional
+        ° Tipo de practica profesional
+        ° Fecha de inicio de la practica profesional
+        ° Perido de la practica profesional
+        ° Horas de la practica profesional
+        ° Remuneración de la practica profesional
+        ° Modalidad de la practica profesional
+        ° Idiomas necesarios para aplicar a la practica profesional
+        ° Experiencia de la practica profesional
+        ° RequisitosPrevios de la practica profesional
+
+    end note
+
+    confirmarCambios -[#blue]-> [*]
+    note on link: **El usuario** solicita cambiar una practica profesional
+    confirmarCambios -[#red]-> [*]
+    note on link: **El usuario** solicita cancelar el cambio
+
+}
+
+@enduml

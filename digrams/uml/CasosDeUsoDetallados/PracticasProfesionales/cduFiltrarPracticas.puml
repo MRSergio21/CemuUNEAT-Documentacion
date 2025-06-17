@@ -1,0 +1,33 @@
+@startuml
+skin rose
+title Caso de Uso: Filtrar Prácticas Profesionales
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+DASHBOARD_ABIERTO --> FiltrarPracticas
+FiltrarPracticas --> DASHBOARD_ABIERTO2
+
+state FiltrarPracticas {
+
+  [*] -[#blue]-> verlistadoPracticas
+  state "Ver" as verlistadoPracticas
+  verlistadoPracticas -[#blue]-> confirmarFiltrado
+  state "Aplicar" as confirmarFiltrado
+  confirmarFiltrado -[#blue]-> listadoFiltrado
+  note on link
+    **El usuario introduce**:
+    ° El nombre de una práctica profesional
+    ° Una letra o una cadena de letras que contenga el nombre de una práctica profesional
+    ° El nombre de una empresa
+    ° El nombre de un grado formativo
+    ° Un tipo de práctica profesional
+  end note
+  state "Ver" as listadoFiltrado
+  listadoFiltrado -[#blue]-> [*]
+}
+
+note on link
+  **El sistema muestra**:
+  ° Lista de Prácticas Profesionales filtrados
+end note
+
+@enduml

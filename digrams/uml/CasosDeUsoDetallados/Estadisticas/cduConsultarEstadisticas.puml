@@ -1,0 +1,19 @@
+@startuml
+skin rose
+title Caso de Uso: Consultar Estadísticas
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+
+DASHBOARD_ABIERTO --> ConsultarEstadísticas
+ConsultarEstadísticas --> DASHBOARD_ABIERTO2
+
+state ConsultarEstadísticas {
+    [*] -[#blue]-> visualizarEstadisticas   
+    visualizarEstadisticas -[#blue]-> [*]
+    note on link
+        **El sistema muestra**
+        Gráficas con las estadísticas de las prácticas profesionales
+    end note
+}
+
+@enduml

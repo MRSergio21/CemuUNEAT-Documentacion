@@ -1,0 +1,32 @@
+@startuml Diagrama de Contexto (Alumno)
+
+skin rose
+skinparam note{
+  BackgroundColor white
+}
+title Diagrama de Contexto (Alumno)
+
+[*] -->  PAGINA_INICIAL
+note on link: paginaInicial
+
+PAGINA_INICIAL -d-> VER_PRACTICAS
+VER_PRACTICAS -l-> PAGINA_INICIAL
+note on link: verSeccionPracticas
+
+PAGINA_INICIAL -d-> VER_INFORMACION
+VER_INFORMACION -l-> PAGINA_INICIAL
+note on link: verInformacionCEMU
+
+VER_PRACTICAS --> LISTA_PRACTICAS
+LISTA_PRACTICAS --> VER_PRACTICAS
+note on link: verListaPracticas
+
+LISTA_PRACTICAS --> PRACTICA
+PRACTICA --> LISTA_PRACTICAS
+note on link: verDetallePractica
+
+PRACTICA --> PEDIR_SOLICITUD
+PEDIR_SOLICITUD --> PRACTICA
+note on link: pedirSolicitud
+
+@enduml

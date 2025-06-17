@@ -1,0 +1,23 @@
+@startuml
+skin rose
+title Caso de Uso: Ver Prácticas Profesionales
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+DASHBOARD_ABIERTO --> FILTRAR_PRACTICAS
+FILTRAR_PRACTICAS --> VerPractica
+VerPractica --> DASHBOARD_ABIERTO2
+
+state VerPractica {
+  [*] -[#blue]-> seleccionarOpcionVer
+  note on link : **El usuario** solicita seleccionar una práctica profesional
+  state "Seleccionar" as seleccionarOpcionVer
+  seleccionarOpcionVer -[#blue]-> [*]
+
+  note on link
+    **El sistema muestra**:
+    ° La práctica profesional seleccionada
+  end note
+
+}
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+skin rose
+title Caso de Uso: Crear Empresa
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+
+DASHBOARD_ABIERTO --> CrearEmpresa
+CrearEmpresa --> DASHBOARD_ABIERTO2
+
+state CrearEmpresa {
+  [*] -[#blue]-> seleccionarOpcionCrear
+  state "Seleccionar'" as seleccionarOpcionCrear
+  seleccionarOpcionCrear -[#blue]-> ingresarDetallesEmpresa
+  note on link
+    **El sistema requiere**:
+    ° Seleccionar la opción 'Crear Empresa' en la lista de empresas
+  end note
+  state "Ingresar" as ingresarDetallesEmpresa
+  ingresarDetallesEmpresa -[#blue]-> confirmarCreacionEmpresa
+  note on link: **El usuario** solicita crear una empresa
+
+  state "Confirmar " as confirmarCreacionEmpresa
+  confirmarCreacionEmpresa -[#blue]-> [*]
+  note on link: **El usuario solicita** confirmar la creación
+
+  ingresarDetallesEmpresa -[#red]-> [*]
+  note on link: **El usuario solicita** cancelar la creación
+}
+@enduml

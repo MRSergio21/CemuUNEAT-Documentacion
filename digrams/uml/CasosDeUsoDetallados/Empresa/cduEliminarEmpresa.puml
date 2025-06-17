@@ -1,0 +1,35 @@
+@startuml
+skin rose
+title Caso de Uso: Eliminar Empresa
+
+state DASHBOARD_ABIERTO
+state VER_EMPRESA
+state FILTRAR_EMPRESA
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+
+DASHBOARD_ABIERTO --> FILTRAR_EMPRESA
+note on link: **El usuario solicita** filtrar por nombre de empresa
+FILTRAR_EMPRESA --> VER_EMPRESA
+note on link: **El usuario solicita** ver un resueltado de empresa
+VER_EMPRESA --> EliminarEmpresa
+EliminarEmpresa --> DASHBOARD_ABIERTO2
+
+
+state EliminarEmpresa {
+
+  [*] -[#blue]-> ingresarVerEmpresa
+  note on link
+    **El sistema muestra**:
+    ° Lista de empresas
+  end note
+  state "Eliminar" as ingresarVerEmpresa
+  ingresarVerEmpresa -[#blue]-> confirmaEliminar
+  state "Confirmar" as confirmaEliminar
+  confirmaEliminar -[#blue]-> [*]
+  note on link: **El usuario** solicita eliminar una empresa
+
+  confirmaEliminar -[#red]-> [*]
+  note on link: **El usuario** solicita cancelar la operación
+
+}
+@enduml

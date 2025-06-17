@@ -1,0 +1,29 @@
+@startuml
+skin rose
+title Caso de Uso: Crear Empresa
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+
+DASHBOARD_ABIERTO --> CrearPracticaProfesional
+CrearPracticaProfesional --> DASHBOARD_ABIERTO2
+
+state CrearPracticaProfesional {
+  [*] -[#blue]-> seleccionarOpcionCrear
+  state "Seleccionar'" as seleccionarOpcionCrear
+  seleccionarOpcionCrear -[#blue]-> ingresarDetallesPractica
+  note on link
+    **El sistema requiere**:
+    ° Seleccionar la opción 'Crear Práctica Profesional' en la lista de practicas profesionales
+  end note
+  state "Ingresar" as ingresarDetallesPractica
+  ingresarDetallesPractica -[#blue]-> confirmarCreacionPractica
+  note on link: **El usuario** solicita crear una práctica profesional
+
+  state "Confirmar " as confirmarCreacionPractica
+  confirmarCreacionPractica -[#blue]-> [*]
+  note on link: **El usuario solicita** confirmar la creación
+
+  ingresarDetallesPractica -[#red]-> [*]
+  note on link: **El usuario solicita** cancelar la creación
+}
+@enduml

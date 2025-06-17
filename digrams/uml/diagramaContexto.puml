@@ -1,0 +1,41 @@
+@startuml Diagrama de Contexto (Administrador)
+
+skin rose
+skinparam note{
+  BackgroundColor white
+}
+title Diagrama de Contexto (Administrador)
+
+[*] -->  INICIAL
+
+INICIAL -d-> DASHBOARD_ABIERTO
+note on link: login
+
+DASHBOARD_ABIERTO -l-> LISTAR_EMPRESA
+LISTAR_EMPRESA -r-> DASHBOARD_ABIERTO
+note on link: gestionarEmpresa
+
+DASHBOARD_ABIERTO -r-> SOLICITUDES
+SOLICITUDES -d-> DASHBOARD_ABIERTO
+note on link: verSolicitudes
+
+DASHBOARD_ABIERTO -r-> ESTADISTICAS
+ESTADISTICAS -d-> DASHBOARD_ABIERTO
+note on link: verEstadisticas
+
+DASHBOARD_ABIERTO -r-> LISTAR_GRADO
+LISTAR_GRADO -l-> DASHBOARD_ABIERTO
+note on link: gestionarGrado
+
+DASHBOARD_ABIERTO -d-> LISTAR_PRACTICAS
+LISTAR_PRACTICAS -u-> DASHBOARD_ABIERTO 
+note on link: gestionarPracticas
+
+DASHBOARD_ABIERTO --> [*]
+LISTAR_EMPRESA --> [*]
+LISTAR_GRADO --> [*]
+LISTAR_PRACTICAS --> [*]
+SOLICITUDES --> [*]
+ESTADISTICAS --> [*]
+
+@enduml
