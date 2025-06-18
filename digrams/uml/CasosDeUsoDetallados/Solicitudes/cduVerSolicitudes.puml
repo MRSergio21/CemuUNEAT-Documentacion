@@ -1,0 +1,23 @@
+@startuml
+skin rose
+title Caso de Uso: Ver Solicitudes
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+DASHBOARD_ABIERTO --> FILTRAR_SOLICITUDES
+FILTRAR_SOLICITUDES --> VerSolicitudes
+VerSolicitudes --> DASHBOARD_ABIERTO2
+
+state VerSolicitudes {
+  [*] -[#blue]-> seleccionarOpcionVer
+  note on link : **El usuario** solicita seleccionar una solicitud para ver sus detalles
+  state "Seleccionar" as seleccionarOpcionVer
+  seleccionarOpcionVer -[#blue]-> [*]
+
+  note on link
+    **El sistema muestra**:
+    ° La solicitud seleccionada
+  end note
+
+}
+
+@enduml

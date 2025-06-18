@@ -1,0 +1,33 @@
+@startuml
+skin rose
+title Caso de Uso: Filtrar Solicitudes
+
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
+DASHBOARD_ABIERTO --> FiltrarSolicitudes
+FiltrarSolicitudes --> DASHBOARD_ABIERTO2
+
+state FiltrarSolicitudes {
+
+  [*] -[#blue]-> verlistadoSolicitudes
+  state "Ver" as verlistadoSolicitudes
+  verlistadoSolicitudes -[#blue]-> confirmarFiltrado
+  state "Aplicar" as confirmarFiltrado
+  confirmarFiltrado -[#blue]-> listadoFiltrado
+  note on link
+    **El usuario introduce**:
+    ° El nombre de una práctica profesional
+    ° Una letra o una cadena de letras que contenga el nombre de una práctica profesional
+    ° El nombre de una empresa
+    ° El nombre de un grado formativo
+    ° El nombre de un estudiante
+  end note
+  state "Ver" as listadoFiltrado
+  listadoFiltrado -[#blue]-> [*]
+}
+
+note on link
+  **El sistema muestra**:
+  ° Lista de Solicitudes filtrados
+end note
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+skin rose
+title Caso de Uso: Cambiar Estado de Solicitudes
+
+state DASHBOARD_ABIERTO
+state VER_SOLICITUDES
+state FILTRAR_SOLICITUDES
+state "VER_SOLICITUDES" as OPEN_SOLICITUDES2
+
+DASHBOARD_ABIERTO --> FILTRAR_SOLICITUDES
+note on link: **El usuario solicita** filtrar por propiedad de ticket
+FILTRAR_SOLICITUDES --> VER_SOLICITUDES
+note on link: **El usuario solicita** ver un ticket
+VER_SOLICITUDES --> CambiarEstadoSolicitudes
+CambiarEstadoSolicitudes --> OPEN_SOLICITUDES2
+
+state CambiarEstadoSolicitudes {
+
+    [*] -[#blue]-> ingresarVerSolicitud
+    note on link: **El usuario solicita** cambiar el estado de una solicitud
+    state "Asignar " as ingresarVerSolicitud
+    ingresarVerSolicitud -[#blue]-> confirmarAsignacion
+    note on link
+        **El usuario solicita**:
+        ° Seleccionar el tipo de estado a cambiar
+        **El sistema muestra**:
+        ° Lista de estados disponibles
+
+    end note
+    state "Confirmar" as confirmarAsignacion
+    confirmarAsignacion -[#blue]-> [*]
+    note on link: **El usuario solicita** confirma el cambio de estado
+
+    confirmarAsignacion -[#red]-> [*]
+    note on link: **El usuario solicita** cancela el cambio de estado
+}
+@enduml
