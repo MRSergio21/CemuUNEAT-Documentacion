@@ -10,5 +10,5 @@ Este repositorio contiene toda la documentación y recursos necesarios para el d
 
 ## Documentación
 
-- Modelo Del Dominio
-- Casos De Uso
+- [Modelo Del Dominio](./digrams/img/ModeloDominio.md)
+- [Casos De Uso](./digrams/img/ActoresCasoDeUsos.md)
