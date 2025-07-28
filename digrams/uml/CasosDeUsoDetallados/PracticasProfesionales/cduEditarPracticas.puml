@@ -2,7 +2,7 @@
 skin rose
 title Caso de Uso: Editar Prácticas Profesionales
 
-state DASHBOARD_ABIERTO
+state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
 state "VER_PRACTICA" as VER_PRACTICA2
 state FILTRAR_PRACTICA
 
@@ -11,6 +11,7 @@ note on link: **El usuario** solicita filtrar por nombre de practica profesional
 FILTRAR_PRACTICA --> VER_PRACTICA2
 note on link: **El usuario** solicita ver una practica profesional
 VER_PRACTICA2 --> EditarPractica
+EditarPractica --> DASHBOARD_ABIERTO2
 
 state EditarPractica {
     [*] -[#blue]-> editarPractica

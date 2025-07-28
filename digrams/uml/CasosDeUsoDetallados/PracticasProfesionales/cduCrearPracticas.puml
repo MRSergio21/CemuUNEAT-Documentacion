@@ -14,6 +14,7 @@ state CrearPracticaProfesional {
   note on link
     **El sistema requiere**:
     ° Seleccionar la opción 'Crear Práctica Profesional' en la lista de practicas profesionales
+    ° Rellenar el formulario con la información requerida para las Crear una Práctica Profesional
   end note
   state "Ingresar" as ingresarDetallesPractica
   ingresarDetallesPractica -[#blue]-> confirmarCreacionPractica
