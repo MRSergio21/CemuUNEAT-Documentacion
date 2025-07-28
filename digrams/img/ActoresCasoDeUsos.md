@@ -83,7 +83,7 @@ En este apartado se mostrará
 
 | Imagen | Código |
 |--------|--------|
-|![Imagen]()|[Código UML]()|
+|![Imagen](../img/CasosDeUsoDetallados/PracticasProfesionales/cduCrearPractica.png)|[Código UML](../uml/CasosDeUsoDetallados/PracticasProfesionales/cduCrearPracticas.puml)|
 
 </details>
 
@@ -109,7 +109,6 @@ En este apartado se mostrará
 |![Imagen](../img/CasosDeUsoDetallados/Solicitudes/cduCambiarEstadoSolicitud.png)|[Código UML](../uml/CasosDeUsoDetallados/Solicitudes/cduCambiarEstadoSolicitudes.puml)|
 
 </details>
-
 
 
 [Volver](../../README.md)
