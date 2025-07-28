@@ -1,0 +1,30 @@
+@startuml
+skin rose
+title Caso de Uso: Crear solicitud para Práctica Profesional
+
+state "PAGINA_ABIERTO" as PAGINA_ABIERTO2
+
+PAGINA_ABIERTO --> VerListadoPracticasProfesionales
+VerListadoPracticasProfesionales --> CrearSolicitudPracticaProfesional
+CrearSolicitudPracticaProfesional --> PAGINA_ABIERTO2
+
+state CrearSolicitudPracticaProfesional {
+  [*] -[#blue]-> seleccionarPracticaProfesional
+    note on link
+    **El usuario** introduce la práctica profesional
+  end note
+  state "Seleccionar Práctica Profesional" as seleccionarPracticaProfesional
+  seleccionarPracticaProfesional -[#blue]-> confirmarCreacionPractica
+  note on link
+    **El sistema** muestra la información de la práctica profesional seleccionada
+    **El usuario** introduce la información para la solicitud
+  end note
+
+  state "Confirmar " as confirmarCreacionPractica
+  confirmarCreacionPractica -[#blue]-> [*]
+  note on link: **El usuario solicita** confirmar la creación
+
+  confirmarCreacionPractica -[#red]-> [*]
+  note on link: **El usuario solicita** cancelar la creación
+}
+@enduml
