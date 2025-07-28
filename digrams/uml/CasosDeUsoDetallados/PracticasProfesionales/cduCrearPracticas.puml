@@ -1,6 +1,6 @@
 @startuml
 skin rose
-title Caso de Uso: Crear Empresa
+title Caso de Uso: Crear Práctica Profesional
 
 state "DASHBOARD_ABIERTO" as DASHBOARD_ABIERTO2
 
